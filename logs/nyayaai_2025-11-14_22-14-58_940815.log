@@ -1,0 +1,21 @@
+2025-11-14 22:15:03 | INFO | src.core.embeddings:__init__:15 - Loading embedding model sentence-transformers/all-MiniLM-L6-v2 on cpu
+2025-11-14 22:15:04 | INFO | src.core.embeddings:__init__:21 - Embedding dimension: 384
+2025-11-14 22:15:04 | INFO | src.core.document_processor:process_all_documents:324 - Found 4 PDF files to process
+2025-11-14 22:15:04 | INFO | src.core.document_processor:process_pdf:39 - Processing PDF: C:\Users\priya\ghci_new_project\NyayaAI-Legal-Rights-Explainer\data\raw_documents\aboutus.pdf
+2025-11-14 22:15:05 | INFO | src.core.document_processor:_save_processed_data:317 - Saved processed data for document 6e2c2a8a8cbe
+2025-11-14 22:15:05 | INFO | src.core.document_processor:process_pdf:39 - Processing PDF: C:\Users\priya\ghci_new_project\NyayaAI-Legal-Rights-Explainer\data\raw_documents\legal services authorities.pdf
+2025-11-14 22:15:08 | INFO | src.core.document_processor:_save_processed_data:317 - Saved processed data for document 97d1fea06467
+2025-11-14 22:15:08 | INFO | src.core.document_processor:process_pdf:39 - Processing PDF: C:\Users\priya\ghci_new_project\NyayaAI-Legal-Rights-Explainer\data\raw_documents\protection_of_women_from_domestic_violence_act,_2005.pdf
+2025-11-14 22:15:10 | INFO | src.core.document_processor:_save_processed_data:317 - Saved processed data for document cb41484e5d53
+2025-11-14 22:15:10 | INFO | src.core.document_processor:process_pdf:39 - Processing PDF: C:\Users\priya\ghci_new_project\NyayaAI-Legal-Rights-Explainer\data\raw_documents\the_right_to_fair_compensation_and_transparency_in_land_acquisition,_rehabilitation_and_resettlement_act,_2013..pdf
+2025-11-14 22:15:22 | INFO | src.core.document_processor:_save_processed_data:317 - Saved processed data for document 29157fd2885d
+2025-11-14 22:15:22 | INFO | src.core.embeddings:encode_texts:28 - Encoding 1508 texts
+2025-11-14 22:16:50 | INFO | src.core.indexer:create_faiss_index:30 - Creating FAISS index 'main' with 1508 vectors
+2025-11-14 22:16:50 | INFO | src.core.indexer:create_faiss_index:72 - Saved FAISS index to C:\Users\priya\ghci_new_project\NyayaAI-Legal-Rights-Explainer\data\indexes\faiss\main.index
+2025-11-14 22:16:50 | INFO | src.core.indexer:create_bm25_index:76 - Creating BM25 index 'main' with 1508 documents
+2025-11-14 22:16:50 | INFO | src.core.indexer:create_bm25_index:96 - Saved BM25 index to C:\Users\priya\ghci_new_project\NyayaAI-Legal-Rights-Explainer\data\indexes\bm25\main.pkl
+2025-11-14 22:16:50 | INFO | src.core.indexer:create_faiss_index:30 - Creating FAISS index 'category_general' with 1508 vectors
+2025-11-14 22:16:50 | INFO | src.core.indexer:create_faiss_index:72 - Saved FAISS index to C:\Users\priya\ghci_new_project\NyayaAI-Legal-Rights-Explainer\data\indexes\faiss\category_general.index
+2025-11-14 22:16:50 | INFO | src.core.indexer:create_bm25_index:76 - Creating BM25 index 'category_general' with 1508 documents
+2025-11-14 22:16:50 | INFO | src.core.indexer:create_bm25_index:96 - Saved BM25 index to C:\Users\priya\ghci_new_project\NyayaAI-Legal-Rights-Explainer\data\indexes\bm25\category_general.pkl
+2025-11-14 22:16:50 | INFO | src.core.indexer:create_category_indexes:220 - Created indexes for category 'general' with 1508 documents
