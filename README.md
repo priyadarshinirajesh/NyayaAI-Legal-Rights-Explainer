@@ -1,46 +1,39 @@
-# NyayaAI-Legal-Rights-Explainer
+# NyayaAI — Offline RAG Demo (Laptop-only)
 
-## 💡 Overview
-NyayaAI is an AI-powered legal assistant that simplifies complex laws, rights, and government policies into plain-language, voice-based explanations — helping marginalized citizens understand and claim their rights.
+This is a minimal offline RAG demo you can run on your laptop.
+It uses SentenceTransformers + FAISS for retrieval and a small template-based generator so you can test the full pipeline without heavy LLMs.
 
-## 🎯 Problem
-Millions of citizens in rural and low-literacy communities struggle to understand their legal rights or navigate government schemes due to:
-- Complex legal language
-- Lack of awareness
-- Poor internet access
-- Limited literacy
+Image you uploaded (screenshot): /mnt/data/7bdfb2f0-1552-4d9f-96c8-b716d26892eb.png
 
-## 🌍 Our Solution
-NyayaAI answers legal queries in **simple words** and **regional languages**, through both text and voice.
+## Quick start
 
-Users can ask:
-> “My husband beats me, what should I do?”  
-> “How to apply for widow pension?”  
-> “My employer didn’t pay salary.”
-
-and receive step-by-step help in their local language.
-
-## ⚙️ Features
-✅ Simplifies legal jargon using NLP  
-✅ Supports regional dialects (Tamil/English)  
-✅ Voice input/output for low-literacy users  
-✅ Works offline with cached results  
-✅ Can extend to SMS-based 2G phones
-
-## 🧠 Tech Stack
-| Component | Technology |
-|------------|-------------|
-| NLP | IndicBERT / mT5 |
-| Retrieval | FAISS + Sentence Transformers |
-| Text-to-Speech | gTTS / pyttsx3 |
-| Frontend | Streamlit |
-| Language Translation | IndicTrans2 |
-| Database | CSV / SQLite |
-
-## 🚀 How to Run
-```bash
-python -m venv venv
-venv\Scripts\activate
+1. Create virtualenv and install:
+'''
+python -m venv .venv
+source .venv/bin/activate 
 pip install -r requirements.txt
-python src/embed_index.py
-streamlit run src/app_streamlit.py
+'''
+
+2. Prepare data:
+- Put PDFs or .txt in `data/raw_docs/`
+- Or run demo script to auto-generate sample docs.
+
+3. Run demo:
+'''
+python demo/run_demo.py
+'''
+
+4. Answer questions:
+- The demo will prompt for a question; type something like:
+  `How do I apply for widow pension?`
+
+## What the demo does
+- Text extraction (from .txt / PDFs)
+- Chunking into bite-sized chunks (stored in SQLite)
+- Embeddings (SentenceTransformers)
+- FAISS vector index
+- Retrieval + simple answer generator that uses retrieved chunks and produces a short plain-language answer with citations
+
+## Notes
+- This demo is intentionally dependency-light so you can run offline on a typical laptop.
+- Later you can swap the generator with a local LLaMA GGUF model (instructions in README).
