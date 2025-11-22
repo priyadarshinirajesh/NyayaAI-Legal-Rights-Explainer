@@ -7,6 +7,7 @@ RAW_TEXT_DIR = Path("data/raw_text")
 DB_PATH = Path("data/legal.db")
 CHUNK_SENTENCES = 6
 
+
 def create_tables(conn):
     cur = conn.cursor()
     cur.execute("""
@@ -21,8 +22,9 @@ def create_tables(conn):
     """)
     conn.commit()
 
+
 def chunk_text(text, sentences_per_chunk=CHUNK_SENTENCES):
-    # Offline regex-based sentence splitter
+    # Basic sentence split
     sentences = re.split(r'(?<=[.!?])\s+', text.strip())
 
     chunks = []
@@ -30,18 +32,25 @@ def chunk_text(text, sentences_per_chunk=CHUNK_SENTENCES):
         chunk = " ".join(sentences[i:i + sentences_per_chunk]).strip()
         if chunk:
             chunks.append(chunk)
-
     return chunks
+
 
 def ingest_all(default_state="UNKNOWN", default_lang="en", default_topic="general"):
     conn = sqlite3.connect(DB_PATH)
     create_tables(conn)
     cur = conn.cursor()
 
+    # ------------------ FIX: clear old chunks ------------------
+    cur.execute("DELETE FROM chunks;")
+    conn.commit()
+    print("Old chunks cleared.")
+
+    # ------------------ Insert new chunks ------------------
     for txt in RAW_TEXT_DIR.glob("*.txt"):
         src = txt.name
         text = txt.read_text(encoding="utf-8")
         chunks = chunk_text(text)
+
         for c in chunks:
             cur.execute(
                 "INSERT INTO chunks (source, state, language, topic, chunk_text) VALUES (?,?,?,?,?)",
@@ -51,6 +60,3 @@ def ingest_all(default_state="UNKNOWN", default_lang="en", default_topic="genera
     conn.commit()
     conn.close()
     print("Ingested chunks into", DB_PATH)
-
-if __name__ == "__main__":
-    ingest_all()

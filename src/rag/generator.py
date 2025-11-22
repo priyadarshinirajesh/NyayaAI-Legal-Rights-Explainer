@@ -1,46 +1,67 @@
 # src/rag/generator.py
+import re
 from src.llm.local_llm import LocalLLM
+from src.rag.safe_context import safe_combine_passages
 
 llm = LocalLLM()
 
+
+def clean_llm_output(text):
+    """Remove duplicate lines."""
+    lines = text.splitlines()
+    seen = set()
+    final = []
+
+    for line in lines:
+        l = line.strip()
+        if l not in seen:
+            seen.add(l)
+            final.append(line)
+
+    cleaned = "\n".join(final).strip()
+
+    # remove repeated question blocks
+    cleaned = re.sub(r"(### User Question:.*?)(### User Question)", r"\1", cleaned, flags=re.S)
+
+    return cleaned.strip()
+
+
 def generate_answer(query, retrieved_passages):
-    combined_context = "\n\n".join([p["text"] for p in retrieved_passages])
+    # -------- FIX: TRUNCATE CONTEXT SAFELY --------
+    combined_context = safe_combine_passages(retrieved_passages)
 
+    # -------- Professional Prompt --------
     prompt = f"""
-You are NyayaAI, a legal assistant for Indian citizens.
+You are **NyayaAI**, India’s legal helper. Provide accurate, simple and clear legal guidance.
 
-You must ALWAYS return your answer in strict JSON with the following keys:
-- "short_answer": brief direct answer (2-4 sentences)
-- "steps": step-by-step actions as a list of strings
-- "sources": list of filenames used
+### RULES:
+- Only use information from the context.
+- Do NOT repeat the context.
+- Do NOT invent facts.
+- Keep the answer clean and structured.
 
-NEVER add extra text. ONLY output valid JSON.
+### FORMAT TO FOLLOW:
+1. **Direct Answer** (3–5 sentences)
+2. **Steps to follow** (bullet points)
+3. **Laws or Sources referenced**
 
-Context:
+### Context:
 {combined_context}
 
-User question:
+### User Question:
 {query}
 
-Return JSON now:
-"""
+### Now give the final answer:
+""".strip()
 
-    response = llm.generate(prompt, max_tokens=500)
+    print("\n\n==================== LLM PROMPT SENT ====================")
+    print(prompt)
+    print("================== END OF LLM PROMPT ====================\n\n")
 
-    # Try converting to Python dict
-    import json
-    try:
-        return json.loads(response)
-    except:
-        # If model adds extra text, try to extract JSON
-        import re
-        match = re.search(r"\{[\s\S]*\}", response)
-        if match:
-            return json.loads(match.group(0))
+    raw_output = llm.generate(prompt, max_tokens=500)
 
-        # fallback minimal skeleton
-        return {
-            "short_answer": response.strip(),
-            "steps": ["Step information not available"],
-            "sources": list({p["source"] for p in retrieved_passages})
-        }
+    print("=============== RAW LLM OUTPUT ===============")
+    print(raw_output)
+    print("=============== END RAW OUTPUT ===============\n")
+
+    return clean_llm_output(raw_output)

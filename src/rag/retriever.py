@@ -27,15 +27,40 @@ def retrieve(query, top_k=4):
     idx, chunk_ids = _load_index()
     q_emb = _model.encode([query], convert_to_numpy=True)
     faiss.normalize_L2(q_emb)
-    D, I = idx.search(q_emb, top_k)
+    D, I = idx.search(q_emb, top_k * 3)  # fetch more so we can filter duplicates
+    
     ids = [int(chunk_ids[i]) for i in I[0]]
+
     conn = sqlite3.connect(DB_PATH)
     cur = conn.cursor()
+
     results = []
+    seen_texts = set()
+
     for cid, score in zip(ids, D[0]):
-        row = cur.execute("SELECT id, source, chunk_text FROM chunks WHERE id=?", (cid,)).fetchone()
+        row = cur.execute(
+            "SELECT id, source, chunk_text FROM chunks WHERE id=?", (cid,)
+        ).fetchone()
+
         if row:
-            results.append({"id": row[0], "source": row[1], "text": row[2], "score": float(score)})
+            text = row[2].strip()
+
+            if text in seen_texts:  # skip duplicates
+                continue
+            seen_texts.add(text)
+
+            results.append({
+                "id": row[0],
+                "source": row[1],
+                "text": text,
+                "score": float(score)
+            })
+
+        if len(results) >= top_k:
+            break
+
     conn.close()
     return results
+
+
 

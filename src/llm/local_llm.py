@@ -1,19 +1,21 @@
+# src/llm/local_llm.py
 from llama_cpp import Llama
 
 class LocalLLM:
-    def __init__(self, model_path="models/llm/llama.gguf"):
+    def __init__(self):
         self.llm = Llama(
-            model_path=model_path,
-            n_ctx=2048,
-            n_threads=6,
-            n_gpu_layers=0
+            model_path="models/llm/llama.gguf",
+            n_ctx=8192,
+            n_threads=8,
+            n_gpu_layers=0,
+            verbose=False
         )
 
-    def generate(self, prompt, max_tokens=300):
-        result = self.llm(
+    def generate(self, prompt, max_tokens=500):
+        response = self.llm(
             prompt,
             max_tokens=max_tokens,
-            stop=["User:", "Assistant:"]
+            temperature=0.2,
+            top_p=0.9,
         )
-        return result["choices"][0]["text"].strip()
-
+        return response["choices"][0]["text"]

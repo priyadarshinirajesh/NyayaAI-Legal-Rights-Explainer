@@ -1,78 +1,95 @@
-# demo/run_demo.py
-"""
-End-to-end demo that runs the pipeline and accepts a query from the user.
-This demo is intentionally light: instead of a heavy LLM it uses a template-based
-generator so you can run it offline immediately.
-
-Steps performed:
-1. Create demo data (if data/raw_docs is empty)
-2. Extract text -> data/raw_text
-3. Chunk into SQLite (data/legal.db)
-4. Compute embeddings -> data/embeddings
-5. Build FAISS index -> data/index
-6. Prompt user for a query -> run retrieve -> generate answer -> print
-"""
+# run_demo.py
 import os
-from pathlib import Path
 import sys
-print("Working dir:", Path.cwd())
-
-# helper imports (local)
-from src.ingestion import extract_text, chunker
-from src.embeddings import embed, build_faiss
-from src.rag import retriever, generator
+import time
 from pathlib import Path
+from googletrans import Translator
 
-DATA_RAW = Path("data/raw_docs")
-DATA_RAW.mkdir(parents=True, exist_ok=True)
-DATA_RAW_TEXT = Path("data/raw_text")
-DATA_RAW_TEXT.mkdir(parents=True, exist_ok=True)
-# 1. If data/raw_docs is empty, create small sample text files
-if not any(DATA_RAW.iterdir()):
-    print("❗ No documents found in data/raw_docs/")
-    print("Please place your legal PDFs or text files inside data/raw_docs/ and run again.")
-    sys.exit(0)
+# working dir fix
+ROOT = Path(__file__).resolve().parent
+os.chdir(ROOT)
+print("Working dir:", ROOT)
 
-# 2. Extract text (if PDFs present) or copy text files
-print("Running text extraction/copy...")
+# project imports
 from src.ingestion.extract_text import process_all
-process_all()
-
-# 3. Chunk into SQLite
-print("Running chunker...")
 from src.ingestion.chunker import ingest_all
-ingest_all()
-
-# 4. Compute embeddings
-print("Computing embeddings...")
 from src.embeddings.embed import compute_and_save
-compute_and_save()
-
-# 5. Build FAISS index
-print("Building FAISS index...")
 from src.embeddings.build_faiss import build_index
-build_index()
+from src.rag import retriever, generator
 
-# 6. Accept a query and run retrieve + generate
-print("\nReady. Type a question like: 'How do I apply for widow pension?'\n")
-query = input("Your question: ").strip()
-if not query:
-    print("No query given. Exiting.")
-    sys.exit(0)
+translator = Translator()
 
-results = retriever.retrieve(query, top_k=4)
-print("\nTop retrieved passages (source — score):")
-for r in results:
-    print(f" - {r['source']} (score: {r['score']:.3f})")
-    print("   ", r['text'][:200].replace("\n"," ") + "...\n")
+MAX_CONTEXT = 15000
 
-answer = generator.generate_answer(query, results)
-print("\n--- NyayaAI (demo) answer ---")
-print(answer)
-print("\nWhat to do next:")
-for i, s in enumerate(answer["steps"], start=1):
-    print(f"{i}. {s}")
-print("\nSources:")
-for s in answer["sources"]:
-    print("- ", s)
 
+def detect_language(text):
+    try:
+        return translator.detect(text).lang
+    except:
+        return "en"
+
+
+def translate_text(text, dest="en"):
+    try:
+        return translator.translate(text, dest=dest).text
+    except:
+        return text
+
+
+def main():
+    RAW = Path("data/raw_docs")
+    if not any(RAW.iterdir()):
+        print("❗ Put PDFs/Text files inside data/raw_docs/")
+        sys.exit(0)
+
+    print("📄 Extracting...")
+    process_all()
+
+    print("📦 Chunking...")
+    ingest_all()
+
+    print("🧠 Embeddings...")
+    compute_and_save()
+
+    print("🔍 Building FAISS...")
+    build_index()
+
+    print("\n✔ Ready! Ask any question.\n")
+
+    while True:
+        q = input("Your question: ").strip()
+        if not q:
+            break
+
+        start = time.time()
+
+        lang = detect_language(q)
+        print(f"[info] Language: {lang}")
+
+        q_en = translate_text(q, "en") if lang != "en" else q
+
+        t0 = time.time()
+        passages = retriever.retrieve(q_en, top_k=6)
+        t_retrieval = time.time() - t0
+        print(f"[timing] Retrieval: {t_retrieval:.2f}s")
+
+        t1 = time.time()
+        answer = generator.generate_answer(q_en, passages)
+        t_generation = time.time() - t1
+
+        if lang != "en":
+            answer = translate_text(answer, lang)
+
+        total = time.time() - start
+
+        print("\n========== NYAYAAI FINAL ANSWER ==========\n")
+        print(answer)
+        print("\n⏱ Timing:")
+        print(f"- Retrieval: {t_retrieval:.2f}s")
+        print(f"- Generation: {t_generation:.2f}s")
+        print(f"- Total: {total:.2f}s")
+        print("\n==========================================\n")
+
+
+if __name__ == "__main__":
+    main()
