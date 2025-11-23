@@ -1,5 +1,5 @@
 # src/rag/safe_context.py
-def safe_combine_passages(passages, max_chars=15000):
+def safe_combine_passages(passages, max_chars=3000):
     out = []
     total = 0
 
@@ -20,5 +20,5 @@ def safe_combine_passages(passages, max_chars=15000):
         out.append(t)
         total += len(t)
 
-    return "\n\n".join(out)
-
+    # Format neatly for readability
+    return "\n\n---\n\n".join(out)

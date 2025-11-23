@@ -19,21 +19,14 @@ def create_tables(conn):
 
 def chunk_text(text, size=6):
     sentences = re.split(r'(?<=[.!?])\s+', text)
-    chunks = []
-
-    for i in range(0, len(sentences), size):
-        chunk = " ".join(sentences[i:i+size]).strip()
-        if chunk:
-            chunks.append(chunk)
-
-    return chunks
+    return [" ".join(sentences[i:i+size]).strip()
+            for i in range(0, len(sentences), size)]
 
 
 def ingest_all():
     conn = sqlite3.connect(DB_PATH)
     create_tables(conn)
 
-    # Clear old chunks
     conn.execute("DELETE FROM chunks;")
     conn.commit()
     print("Old chunks cleared.")
@@ -51,7 +44,3 @@ def ingest_all():
     conn.commit()
     conn.close()
     print("Ingested chunks.")
-
-
-if __name__ == "__main__":
-    ingest_all()

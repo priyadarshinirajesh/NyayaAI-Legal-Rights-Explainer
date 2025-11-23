@@ -5,21 +5,19 @@ import time
 from pathlib import Path
 from googletrans import Translator
 
-# working dir fix
 ROOT = Path(__file__).resolve().parent
 os.chdir(ROOT)
 print("Working dir:", ROOT)
 
-# project imports
+# Project imports
 from src.ingestion.extract_text import process_all
 from src.ingestion.chunker import ingest_all
 from src.embeddings.embed import compute_and_save
 from src.embeddings.build_faiss import build_index
 from src.rag import retriever, generator
+from src.rag.safe_context import safe_combine_passages
 
 translator = Translator()
-
-MAX_CONTEXT = 15000
 
 
 def detect_language(text):
@@ -65,18 +63,23 @@ def main():
 
         lang = detect_language(q)
         print(f"[info] Language: {lang}")
-
         q_en = translate_text(q, "en") if lang != "en" else q
 
+        # RETRIEVAL
         t0 = time.time()
         passages = retriever.retrieve(q_en, top_k=6)
         t_retrieval = time.time() - t0
         print(f"[timing] Retrieval: {t_retrieval:.2f}s")
 
+        # BUILD CLEAN CONTEXT
+        context_str = safe_combine_passages(passages, max_chars=3000)
+
+        # GENERATION
         t1 = time.time()
-        answer = generator.generate_answer(q_en, passages)
+        answer = generator.generate_answer(q_en, context_str)
         t_generation = time.time() - t1
 
+        # TRANSLATE BACK
         if lang != "en":
             answer = translate_text(answer, lang)
 
