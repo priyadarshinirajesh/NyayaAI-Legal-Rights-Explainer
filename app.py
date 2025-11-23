@@ -1,8 +1,10 @@
-# app.py — NyayaAI Chatbot
+# app.py — NyayaAI with Speech + Text Chat
 import streamlit as st
 from pathlib import Path
 import time
 import sys
+import whisper
+import os
 
 ROOT = Path(__file__).resolve().parent
 sys.path.append(str(ROOT))
@@ -10,6 +12,7 @@ sys.path.append(str(ROOT))
 from src.nyayaai_core import rag_answer, detect_language, translate
 from src.rag.retriever import retrieve
 from src.rag.generator import generate_answer
+from src.utils.audio_tools import record_audio
 
 
 # --------------------------------------------------
@@ -18,6 +21,7 @@ from src.rag.generator import generate_answer
 @st.cache_resource
 def init_backend():
     print("=== NyayaAI BACKEND STARTED ===")
+
     from src.ingestion.extract_text import process_all
     from src.ingestion.chunker import ingest_all
     from src.embeddings.embed import compute_and_save
@@ -49,67 +53,78 @@ init_backend()
 # Streamlit Chat UI
 # --------------------------------------------------
 st.set_page_config(page_title="NyayaAI – Legal Assistant", layout="wide")
-
 st.title("⚖️ NyayaAI – Legal Rights Assistant")
-st.write("Ask any legal question in any language and get simple, clear guidance.")
+st.write("Ask any legal question using voice 🎤 or text 💬.")
 
 
 # ------------------------------------
-# Chat history setup
+# Chat history
 # ------------------------------------
 if "chat" not in st.session_state:
-    st.session_state.chat = []   # [{"role": "user"/"assistant", "text": "..."}]
+    st.session_state.chat = []
 
 
 # ------------------------------------
-# Show chat history
+# Display chat messages
 # ------------------------------------
 for msg in st.session_state.chat:
     st.chat_message(msg["role"]).write(msg["text"])
 
 
-# ------------------------------------
-# Chat input — like ChatGPT
-# ------------------------------------
-query = st.chat_input("Type your legal question...")
+# --------------------------------------------------
+# INPUT AREA (Mic + Text Input)
+# --------------------------------------------------
+col1, col2 = st.columns([10, 1])
 
-if query:
-    # Show user's message
+with col1:
+    user_text = st.text_input(
+        "text_box",
+        placeholder="Type your legal question…",
+        label_visibility="collapsed"
+    )
+
+with col2:
+    st.write("")
+    audio_file = record_audio()
+
+
+# --------------------------------------------------
+# HANDLE AUDIO → TEXT (Whisper SMALL)
+# --------------------------------------------------
+query = None
+
+if audio_file:
+    st.toast("🎙️ Processing voice…")
+    model = whisper.load_model("small")   # FAST + ACCURATE FOR INDIAN LANGUAGES
+    result = model.transcribe(audio_file, fp16=False)
+    query = result["text"].strip()
+
+    st.chat_message("user").write("🎤 " + query)
+    st.session_state.chat.append({"role": "user", "text": query})
+
+elif user_text.strip():
+    query = user_text.strip()
     st.chat_message("user").write(query)
     st.session_state.chat.append({"role": "user", "text": query})
 
-    # Process
-    with st.spinner("NyayaAI is thinking..."):
-        start_total = time.time()
 
+# --------------------------------------------------
+# PROCESS QUERY
+# --------------------------------------------------
+if query:
+    with st.spinner("NyayaAI is thinking..."):
         lang = detect_language(query)
         q_en = translate(query, "en") if lang != "en" else query
 
-        # retrieve
-        t0 = time.time()
         passages = retrieve(q_en, top_k=6)
-        retrieval_time = time.time() - t0
-
-        # generate answer
-        t1 = time.time()
         answer_en = generate_answer(q_en, passages)
-        generation_time = time.time() - t1
 
-        # translate back
         answer = translate(answer_en, lang) if lang != "en" else answer_en
 
-        total_time = time.time() - start_total
-
-    # Show NyayaAI answer
     st.chat_message("assistant").write(answer)
     st.session_state.chat.append({"role": "assistant", "text": answer})
 
-    # Backend log
-    print("\n======== BACKEND LOG ========")
-    print("Question:", q_en)
-    print("Answer:", answer_en)
-    print("Retrieved:", len(passages))
-    print("Retrieval:", retrieval_time)
-    print("Generation:", generation_time)
-    print("Total:", total_time)
-    print("=============================\n")
+    print("\n=== BACKEND LOG ===")
+    print("QUERY:", q_en)
+    print("ANSWER:", answer_en)
+    print("====================\n")

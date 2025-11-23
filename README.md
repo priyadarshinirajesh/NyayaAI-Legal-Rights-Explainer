@@ -1,242 +1,295 @@
-🇮🇳 NyayaAI – AI-Powered Legal Rights Explainer for Indian Citizens
-✨ Multilingual • Offline • RAG-based • Local LLM • Open-Source
+📘 NyayaAI – Legal Rights Assistant (RAG + Voice + Multilingual)
 
-NyayaAI is an AI assistant that helps Indian citizens—especially rural and underprivileged communities—understand their legal rights in simple, easy-to-understand language.
+NyayaAI is an intelligent legal rights explainer designed for India.
+Users can ask questions through text or voice, in any Indian language, and get clear legal guidance extracted from real government documents.
 
-It works on your local system using a local Llama 3.1 model, a FAISS semantic search index, and multilingual translation, making it powerful, private, and flexible.
+This project uses:
 
-⭐ Key Features
-🔍 Retrieval-Augmented Generation (RAG)
+RAG (Retrieval Augmented Generation)
 
-NyayaAI performs:
+FAISS Vector Index
 
-PDF → Text extraction
+GGUF local LLM (CPU-friendly)
 
-Sentence-level chunking
+Whisper Medium (speech-to-text)
 
-Embedding generation using all-MiniLM-L6-v2
+Googletrans for text translation (AI4Bharat optional)
 
-Fast semantic search using FAISS
+Streamlit Chat UI with mic button
 
-Context-based LLM answering
-
-🧠 Local LLM (Offline)
-
-Powered by:
-
-Meta-Llama-3.1-8B-Instruct-GGUF
-
-Run through llama.cpp (llama_cpp_python), fully offline and CPU-friendly.
-
-🌍 Multilingual Support
-
-NyayaAI automatically detects and supports questions in:
-
-Hindi
-
-Tamil
-
-Telugu
-
-Malayalam
-
-Kannada
-
-Bengali
-
-Marathi
-
-Gujarati
-
-Punjabi
-
-English
-
-…and any other Googletrans-supported language
-
-Workflow:
-
-Detect language
-
-Translate to English
-
-Run RAG + LLM
-
-Translate response back
-
-📘 Simple, Understandable Responses
-
-Every answer includes:
-
-Direct explanation (3–5 sentences)
-
-Clear steps to follow
-
-Relevant laws/sources
-
-📑 Document-Agnostic
-
-Just drop PDFs or text files into:
-
-data/raw_docs/
-
-
-NyayaAI processes everything automatically.
-
-📁 Folder Structure
+🚀 Features
+✔ Ask legal questions using Text or Voice
+✔ Supports all Indian languages (Hindi, Tamil, Telugu, Bengali, Marathi, Malayalam…)
+✔ Local inference (NO API, NO GPU needed)
+✔ Whisper Medium for accurate multilingual transcription
+✔ RAG using FAISS for reliable legal answers
+✔ GGUF model (3B/8B) for CPU-friendly generation
+✔ Clean ChatGPT-style UI
+✔ Works offline once setup is done
+📂 Project Directory Structure
 NyayaAI-Legal-Rights-Explainer/
 │
-├── run_demo.py
-│
-├── models/
-│   └── llm/
-│       └── llama.gguf       # Meta-Llama-3.1-8B-Instruct-GGUF (renamed)
+├── app.py                          # Main Streamlit UI
+├── README.md                       # Documentation
 │
 ├── data/
-│   ├── raw_docs/            # PDF documents you provide
-│   ├── raw_text/            # Extracted text
-│   ├── embeddings/          # Embedding vector files
-│   ├── index/               # FAISS index
-│   └── legal.db             # Chunk database
+│   ├── raw_docs/                   # Place all PDFs, text documents here
+│   ├── extracted/                  # Auto-generated
+│   ├── chunks/                     # Auto-generated
+│   ├── embeddings/                 # Auto-generated
+│   ├── faiss_index.faiss           # Auto-generated
+│
+├── models/
+│   ├── llm/
+│   │   └── llama_3b.gguf           # Your GGUF model
 │
 ├── src/
+│   ├── utils/
+│   │   └── audio_tools.py          # Whisper audio recorder + STT
+│   │
+│   ├── nyayaai_core.py             # Translation + RAG orchestration
 │   ├── ingestion/
-│   │   ├── extract_text.py
-│   │   └── chunker.py
-│   │
 │   ├── embeddings/
-│   │   ├── embed.py
-│   │   └── build_faiss.py
-│   │
 │   ├── rag/
-│   │   ├── retriever.py
-│   │   └── generator.py
-│   │
-│   └── llm/
-│       └── local_llm.py
+│
+└── venv / .venv                    # Python virtual environment
 
-🛠️ Installation Guide
-1️⃣ Create and activate virtual environment
+🛠️ 1. System Requirements
+Minimum
+
+Windows 10 / macOS / Linux
+
+RAM: 8 GB
+
+CPU: Any modern processor
+
+Recommended
+
+RAM: 16 GB
+
+CPU: i5/i7/Ryzen
+
+No GPU required.
+
+🐍 2. Create Virtual Environment
+
+Open Terminal / PowerShell inside project folder:
+
 python -m venv .venv
-.venv\Scripts\activate       # Windows
 
-2️⃣ Install dependencies
+
+Activate it:
+
+Windows
+.venv\Scripts\activate
+
+macOS/Linux
+source .venv/bin/activate
+
+📦 3. Install Dependencies
+
+Run:
+
 pip install -r requirements.txt
 
-3️⃣ Download the Llama model
+
+If you don’t have a requirements.txt, install manually:
+
+pip install streamlit
+pip install googletrans==4.0.0-rc1
+pip install faiss-cpu
+pip install sentence-transformers
+pip install pypdf
+pip install streamlit-audiorecorder
+pip install openai-whisper
+pip install ffmpeg-python
+pip install numba
+
+🎧 4. Install FFmpeg (Required for audio)
+
+Whisper requires FFmpeg, otherwise audio recording & transcription WILL FAIL.
 
 Download:
 
-Meta-Llama-3.1-8B-Instruct-GGUF
+https://www.gyan.dev/ffmpeg/builds/
 
-Rename it to:
+Steps:
 
-llama.gguf
+Download ffmpeg-gpl-essentials.zip
+
+Extract it
+
+Copy the bin/ folder path
+
+Add to Windows PATH
+
+Search Edit system environment variables
+
+Add the path to Path
+
+Check installation:
+
+ffmpeg -version
 
 
-Place it in:
+If you see version info → ✔ Installed.
 
-models/llm/
+🧠 5. Download LLM (GGUF)
 
-4️⃣ Add your legal PDFs
+Use a small, fast CPU model:
 
-Place them inside:
+Recommended:
+
+Llama 3.1 - 3B Instruct (Q4_K_M).gguf
+
+Download:
+https://huggingface.co/MaziyarPanahi/Meta-Llama-3.1-3B-Instruct-GGUF
+
+Place it here:
+
+models/llm/llama.gguf
+
+🗃️ 6. Prepare Legal Documents
+
+Put all PDFs, text documents, Bare Acts inside:
 
 data/raw_docs/
 
-▶️ Running NyayaAI
 
-Run this command:
+Examples:
 
-python run_demo.py
+Domestic Violence Act
 
+Dowry Prohibition Act
 
-NyayaAI will:
+Widow Pension Schemes
 
-✔ Extract PDFs
-✔ Chunk text
-✔ Compute embeddings
-✔ Build FAISS index
-✔ Load local LLM
-✔ Ask you for questions
+Maintenance rights
 
-You will see:
+Police procedures
 
-✔ Ready! Ask any legal question (any language)
+⚙️ 7. Backend Pipeline (Auto Runs Inside app.py)
 
-🧪 Example Questions (Try These!)
-Widow Pension
+The following steps run automatically when Streamlit starts:
 
-विधवा पेंशन कैसे मिलेगी?
+✔ Extract Text from PDFs
+✔ Chunk Documents
+✔ Generate Embeddings
+✔ Build FAISS Index
 
-What is the eligibility for IGNWPS?
+This ensures correct RAG working.
 
-Tamil: நான் விதவைத் தொகைக்கு தகுதி உள்ளவரா?
+🎙️ 8. Configure Speech-to-Text
 
-Domestic Violence
+NyayaAI uses:
 
-What support is available under the Domestic Violence Act?
+✔ Whisper Medium
 
-Property
+Best accuracy for Indian languages on CPU.
 
-What documents do I need to buy land?
+Audio is handled through:
 
-I want to buy a property. What steps should I take?
-
-Crime / FIR
-
-FIR कैसे दर्ज करें?
-
-Steps to file an FIR?
-
-Children / POCSO
-
-What rights do minors have under the POCSO Act?
-
-🧱 How NyayaAI Works (Architecture)
-USER QUESTION (Any language)
-        ↓
-Language Detection (googletrans)
-        ↓
-Translate → English
-        ↓
-RAG Retrieval (FAISS + MiniLM embeddings)
-        ↓
-Build LLM Prompt (Context + Question)
-        ↓
-Local LLM (llama.cpp) Generates Answer
-        ↓
-Clean Output
-        ↓
-Translate Back → User’s Language
-        ↓
-FINAL RESPONSE
+src/utils/audio_tools.py
 
 
-🌟 Future Enhancements
+This file:
+✔ Records audio
+✔ Saves WAV
+✔ Transcribes with Whisper Medium
+✔ Returns clean text
 
-Add IndicTrans2 for offline translation
+📝 9. Running the App
 
-Add a FastAPI backend
+Activate venv:
 
-Add a mobile-friendly UI (Flutter / React Native)
+.venv\Scripts\activate
 
-Add speech-to-text + text-to-speech
 
-State-wise legal modules
+Run Streamlit:
 
-Offline OCR for scanned PDFs
+streamlit run app.py
 
-#👏 Acknowledgments
 
-Meta AI (Llama 3.1)
+Open in browser:
 
-SentenceTransformers
+http://localhost:8501
+
+💬 10. How to Use NyayaAI
+1️⃣ Ask using Text
+
+Type a question:
+
+What are my rights as a tenant?
+
+2️⃣ Ask using Voice
+
+Tap 🎤
+Speak in ANY language (Hindi/Tamil/Telugu/Marathi/Bengali etc.)
+
+Whisper Medium → converts speech → text
+NyayaAI → answers
+
+🔍 11. How RAG Works
+User Query → Translate → Retrieve (FAISS) → Create Prompt → LLM → Translate Back → Answer
+
+🌐 12. Supported Languages
+Voice (Whisper Medium):
+
+✔ Hindi
+✔ English
+
+Text:
+
+
+🛠️ 13. Troubleshooting
+❌ “No module named X”
+
+Activate venv:
+
+.venv\Scripts\activate
+
+❌ FFmpeg not found
+
+Ensure:
+
+ffmpeg -version
+
+
+returns version info.
+
+❌ Whisper too slow
+
+Switch model:
+
+whisper.load_model("small")
+
+❌ RAG not retrieving context
+
+Ensure documents are inside:
+
+data/raw_docs/
+
+🚀 14. Deployment Options
+✔ Streamlit Cloud
+
+Fastest.
+
+✔ Render
+
+(Need Always On instance)
+
+✔ Local app with EXE
+
+Using PyInstaller (optional)
+
+❤️ 15. Credits
+
+Meta Llama 3.1
+
+OpenAI Whisper
 
 FAISS
 
+Streamlit
+
 Googletrans
-
-PyMuPDF
-
-Python open-source community
