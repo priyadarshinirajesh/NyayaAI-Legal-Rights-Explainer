@@ -1,726 +1,192 @@
- 
- 
- 
- 
- 
- 
- 
- 
-Tamil Nadu   
-e-District Application  
- 
-Training Manual for 
- 
-Destitute Widow Pension 
-Scheme 
-(REV-202) 
- 
-Revenue Department
- 
- 
- 
 
-Tamil Nadu e-District Application User Manual 
- 
- 
-© 2019. Government of Tamil Nadu. All rights reserved. 
- 
- 
-Table of Content 
-Table of Contents 
-1. 
-Project Overview ......................................................................................................... 3 
-2. 
-General Information ..................................................................................................... 3 
-2.1. 
-Tools Required ...................................................................................................................................................... 3 
-2.2. 
-Starting your Computer ....................................................................................................................................... 3 
-3. 
-Purpose .................................................................................................................... 4 
-4. 
-Scope ....................................................................................................................... 4 
-5. 
-Getting Started ........................................................................................................... 4 
-6. 
-Services Offered under Revenue Department ....................................................................... 4 
-7.   Destitute Widow Pension Scheme ............................................ Error! Bookmark not defined. 
-7.1. 
-Registering for CAN (Citizen Access Number) ................................................................................................. 9 
-7.2. 
-Applying for Destitute Widow Pension Scheme ....................................................................................... 12 
-7.2.1. 
-Filling up Destitute Widow Pension Scheme ........................................................................................ 13 
-7.3. 
-Downloading Certificate ................................................................................................................................... 21 
-8. 
-Disclaimer ................................................................................................................ 24 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
-
-Tamil Nadu e-District Application User Manual 
- 
- 
-© 2019. Government of Tamil Nadu. All rights reserved. 
- 
- 
-E-DISTRICTTAMIL NADU USER MANUAL 
-(Government of Tamil Nadu) 
-1. Project Overview 
-Districts are the de facto front-end of government where most Government-to-Consumer or G2C 
-interaction takes place. 
-The e-District project was conceptualized to improve this experience by creating an automated 
-workflow system for the district administration and help in providing the citizen efficient 
-department services through Common Service Centers (CSCs), the primary front end channels 
-envisaged under the National e-Governance Plan by Department of Information Technology (DIT), 
-Ministry of Communication and Information Technology (MCIT), Government of India. 
-2. General Information 
-Let’s Start!! 
-2.1. 
-Tools Required 
- 
- 
- 
- 
- 
- 
- 
- 
-You will be provided with the following basic infrastructure: 
- Computer  
- 
-(CPU, Monitor, Keyboard & Mouse) 
- Network Connection  
-(as per requirement) 
- Peripherals  
- 
-(as per requirement)  
- Browser   
- 
-(Google chrome, Version 37) 
- Uninterrupted Power Supply (UPS) 
- 
-2.2. 
-Starting your Computer 
-Steps 
-1. Ensure all cables are connected between the computer, network connection, peripherals & UPS 
-2. Plug the UPS to the electrical socket  
-3. Switch ‘ON’ the electrical socket 
-4. Switch ‘ON’ the UPS 
-5. Press the 
- (power button) on the computer 
-6. Allow the system to boot up. 
- 
- 
- 
- 
-1. Switch ‘ON’ the UPS only after you have switched ‘ON’ the power socket 
-2. Switch ‘ON’ the computer only after you have switched ‘’ON’ the UPS 
-3. Switch ‘OFF’ the power socket in there is an electrical spark in the socket 
- 
- 
-4. Do not start the computer in case the UPS is not fully charged  
-5. Do not start the computer in case any of the wires are in contact with water 
-
-Tamil Nadu e-District Application User Manual 
- 
- 
-© 2019. Government of Tamil Nadu. All rights reserved. 
- 
- 
-sources / moisture 
- 
- 
-6. In case you are not sure whether the computer is connected in the right way 
-– please contact the system engineer 
- 
-3. Purpose 
-This document is an integral part of e-District application user manuals. The objective of this 
-document is to provide step-by-step assistance to the user on how to apply for Destitute Widow 
-Pension Scheme through the e-District Portal.   
-4. Scope 
-The scope of this document covers the ‘Destitute Widow Pension Scheme’ service offered under 
-the Revenue Department. 
-5. Getting Started 
-Following points and guidelines may be referred while accessing the e-Sevai/e-District 
-application: 
- User must have valid username and password 
- Make relevant and correct entries only 
- Recheck the entries before clicking on Submit button 
- Mandatory fields cannot be left blank 
- Mandatory/Optional documents should be attached as per requirement 
- Do not make false entries 
-6. Services Offered under Revenue Department 
-Following services areoffered under the Revenue Department:  
-1. REV-101 Community certificate 
-2. REV-102 Nativity certificate 
-3. REV-103 Income Certificate 
-4. REV-104 First Graduate Certificate 
-5. REV-105 Deserted Woman Certificate 
-6. REV-106 Agricultural Income Certificate 
-7. REV-107 Family Migration Certificate 
-8. REV-108 Unemployment Certificate 
-9. REV-109 Widow Certificate 
-
-Tamil Nadu e-District Application User Manual 
- 
- 
-© 2019. Government of Tamil Nadu. All rights reserved. 
- 
-10. REV-111 Certificate for Loss of Educational Records due to Disaster 
-11. REV-113 Inter Caste Marriage Certificate 
-12. REV-114 Legal Heir Certificate 
-13. REV-115 Other Backward Classes (OBC) Certificate 
-14. REV-116 Residence certificate 
-15. REV-117 Small / Marginal Farmer Certificate 
-16. REV-118 Solvency Certificate 
-17. REV-119 No Male Child Certificate 
-18. REV-120 Unmarried Certificate 
-19. REV-401 Licence under Pawn Broker Act 
-20. REV-402 Money Lender's Licence 
-21. REV-122 Income and Asset Certificate for Economically Weaker Sections 
-22. REV-123 Issuance of Jain Religious Minority Certificate 
-23. REV-404 Issuance of Public Building License 
-24. REV-403 Temporary Crackers License 
-25. REV-201  Indira Gandhi National Old Age Pension Scheme (IGNOPS)   
-26. REV-202  Destitute Widow Pension Scheme (DWPS)   
-27. REV-203  Destitute Deserted Woman Pension Scheme (DDWPS)   
-28. REV-204  Unmarried Women Pension Scheme (UWPS 
-29. REV-205  Chief Minister Uzhavar Pathukapu Thittam (CMUPT)   
-30. REV-206  Differently Abled Pension Scheme   
- 
-7. Destitute Widow Pension Scheme  
- 
-Following steps describe how to apply for the Destitute Widow Pension Scheme Certificate 
-through the e-District Portal: 
- 
-STEP1:  Go to the e-Sevai (Government of Tamil Nadu) Web Portal. 
- 
-STEP 2: Enter the login credentials. 
- 
-Make sure ‘Operator’ is selected in the Operator Typefield. 
- 
-STEP 3: Enter Captcha code. 
- 
-STEP 4: Click on Login. 
-
-Tamil Nadu e-District Application User Manual 
- 
- 
-© 2019. Government of Tamil Nadu. All rights reserved. 
- 
- 
- 
-e-Sevai Dashboard will appear. 
- 
-STEP 5: Click on Services on the left panel. 
- 
- 
- 
-Department Wise service listing will appear.  
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
-Enter Login ID and 
-Password 
-Enter Captcha 
-Click on Login 
-Click on Services 
-
-Tamil Nadu e-District Application User Manual 
- 
- 
-© 2019. Government of Tamil Nadu. All rights reserved. 
- 
- 
- 
-STEP 6: Click on Revenue Department. 
- 
-You can also switch to the Service Wise listing, or switch to Search and search a particular service 
-using keywords. 
- 
- 
- 
-STEP 7: Click on REV-202 Destitute Widow Pension Scheme 
- 
- 
- 
-You will be redirected to the service page on the Tamil Nadu e-District Web Portal.  
- 
- 
- 
-Click on the 
-Department Name 
-Click on the Service 
-Name 
-
-Tamil Nadu e-District Application User Manual 
- 
- 
-© 2019. Government of Tamil Nadu. All rights reserved. 
- 
-STEP 8: Click on Proceed to continue. 
- 
- 
- 
-Applicant Search form will appear. Search can be performed using the following options: 
- 
- 
-Applicants CAN Number 
- 
-Applicant Name 
- 
-Applicant Father Name 
- 
-Applicant Mobile Number 
- 
-Applicant Email Id 
- 
-Applicant Date Of Birth 
- 
-The green asterisk signifies that the available search options are optional mandatory. 
- 
-An applicant can apply for the Certificate provided he/she is having a unique CAN number. 
- 
-If the applicant doesn’t have a unique CAN Number, he must register for CAN to access the application 
-form for the Certificate.  
- 
- 
- 
- 
- 
- 
- 
- 
- 
-Click on Proceed 
-
-Tamil Nadu e-District Application User Manual 
- 
- 
-© 2019. Government of Tamil Nadu. All rights reserved. 
- 
-7.1. 
-Registering for CAN (Citizen Access Number) 
-STEP 1: Click on the ‘Click here’ link to apply for CAN Registration. 
- 
- 
- 
- 
-The below figure shows the CAN Registration form.  
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
-STEP 2:Fill up all mandatory details in the form prescribed format.  
-Click to apply for CAN 
-Registration 
-
-Tamil Nadu e-District Application User Manual 
- 
- 
-© 2019. Government of Tamil Nadu. All rights reserved. 
- 
- 
- 
- 
- 
- 
-Fill up the CAN 
-Registration form 
-Click to 
-submit form
-
-Tamil Nadu e-District Application User Manual 
- 
- 
-© 2019. Government of Tamil Nadu. All rights reserved. 
- 
-STEP 3:Click on Register to submit form. 
- 
-Note: You would be required to generate and verify OTP before submitting the form. 
- 
- 
- 
-On successful CAN Registration, the CAN Number will be shown. 
- 
- 
-The applicant may now proceed with applying for the Certificate by clicking on the Proceed button. 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
-Click to apply for 
-Issuance of Public 
-
-Tamil Nadu e-District Application User Manual 
- 
- 
-© 2019. Government of Tamil Nadu. All rights reserved. 
- 
- 
-7.2. 
-Applying for Destitute Widow Pension Scheme 
-If the applicant is having a unique CAN Number his/her record will be shown in the search results. 
- 
- 
- 
- 
-STEP 1: Select the record by clicking on the option button against the desired record. 
- 
-STEP 2: Click on Proceed. 
- 
-CAN details of the applicant may be modified by clicking on the Edit CAN Detail button. 
- 
-The Save as new option allows you to save the same CAN Number with different applicant details. 
- 
- 
- 
- 
- 
- 
- 
- 
-Search results 
-Click to select record 
-Click to proceed 
-
-Tamil Nadu e-District Application User Manual 
- 
- 
-© 2019. Government of Tamil Nadu. All rights reserved. 
- 
- 
- 
-7.2.1. 
-Filling up Destitute Widow Pension Scheme 
-SECTION1: Applicant Details 
- 
-Applicant details will appear pre-filled in the form. These details are non-editable. 
- 
- 
- 
-SECTION 2: Current Address 
- 
-Applicant’s current address details will appear pre-filled in the form. These details are non-editable. 
- 
- 
- 
-SECTION 3: Permanent Address 
- 
+Tamil Nadu e-District Application User Manual
+Project Overview ......................................................................................................... 3
+General Information ..................................................................................................... 3
+Tools Required ...................................................................................................................................................... 3
+Starting your Computer ....................................................................................................................................... 3
+Getting Started ........................................................................................................... 4
+Services Offered under Revenue Department ....................................................................... 4
+7.   Destitute Widow Pension Scheme ............................................ Error! Bookmark not defined.
+Registering for CAN (Citizen Access Number) ................................................................................................. 9
+Applying for Destitute Widow Pension Scheme ....................................................................................... 12
+Filling up Destitute Widow Pension Scheme ........................................................................................ 13
+Downloading Certificate ................................................................................................................................... 21
+Tamil Nadu e-District Application User Manual
+E-DISTRICTTAMIL NADU USER MANUAL
+(Government of Tamil Nadu)
+Districts are the de facto front-end of government where most Government-to-Consumer or G2C
+The e-District project was conceptualized to improve this experience by creating an automated
+workflow system for the district administration and help in providing the citizen efficient
+department services through Common Service Centers (CSCs), the primary front end channels
+envisaged under the National e-Governance Plan by Department of Information Technology (DIT),
+Ministry of Communication and Information Technology (MCIT), Government of India.
+You will be provided with the following basic infrastructure:
+(CPU, Monitor, Keyboard & Mouse)
+(Google chrome, Version 37)
+ Uninterrupted Power Supply (UPS)
+1. Ensure all cables are connected between the computer, network connection, peripherals & UPS
+2. Plug the UPS to the electrical socket
+3. Switch ‘ON’ the electrical socket
+4. Switch ‘ON’ the UPS
+(power button) on the computer
+6. Allow the system to boot up.
+1. Switch ‘ON’ the UPS only after you have switched ‘ON’ the power socket
+2. Switch ‘ON’ the computer only after you have switched ‘’ON’ the UPS
+3. Switch ‘OFF’ the power socket in there is an electrical spark in the socket
+4. Do not start the computer in case the UPS is not fully charged
+5. Do not start the computer in case any of the wires are in contact with water
+Tamil Nadu e-District Application User Manual
+6. In case you are not sure whether the computer is connected in the right way
+– please contact the system engineer
+This document is an integral part of e-District application user manuals. The objective of this
+document is to provide step-by-step assistance to the user on how to apply for Destitute Widow
+Pension Scheme through the e-District Portal.
+The scope of this document covers the ‘Destitute Widow Pension Scheme’ service offered under
+Following points and guidelines may be referred while accessing the e-Sevai/e-District
+ User must have valid username and password
+ Make relevant and correct entries only
+ Recheck the entries before clicking on Submit button
+ Mandatory fields cannot be left blank
+ Mandatory/Optional documents should be attached as per requirement
+ Do not make false entries
+6. Services Offered under Revenue Department
+Following services areoffered under the Revenue Department:
+1. REV-101 Community certificate
+2. REV-102 Nativity certificate
+3. REV-103 Income Certificate
+4. REV-104 First Graduate Certificate
+5. REV-105 Deserted Woman Certificate
+6. REV-106 Agricultural Income Certificate
+7. REV-107 Family Migration Certificate
+8. REV-108 Unemployment Certificate
+9. REV-109 Widow Certificate
+Tamil Nadu e-District Application User Manual
+10. REV-111 Certificate for Loss of Educational Records due to Disaster
+11. REV-113 Inter Caste Marriage Certificate
+12. REV-114 Legal Heir Certificate
+13. REV-115 Other Backward Classes (OBC) Certificate
+14. REV-116 Residence certificate
+15. REV-117 Small / Marginal Farmer Certificate
+16. REV-118 Solvency Certificate
+17. REV-119 No Male Child Certificate
+18. REV-120 Unmarried Certificate
+19. REV-401 Licence under Pawn Broker Act
+20. REV-402 Money Lender's Licence
+21. REV-122 Income and Asset Certificate for Economically Weaker Sections
+22. REV-123 Issuance of Jain Religious Minority Certificate
+23. REV-404 Issuance of Public Building License
+24. REV-403 Temporary Crackers License
+25. REV-201  Indira Gandhi National Old Age Pension Scheme (IGNOPS)
+26. REV-202  Destitute Widow Pension Scheme (DWPS)
+27. REV-203  Destitute Deserted Woman Pension Scheme (DDWPS)
+28. REV-204  Unmarried Women Pension Scheme (UWPS
+29. REV-205  Chief Minister Uzhavar Pathukapu Thittam (CMUPT)
+30. REV-206  Differently Abled Pension Scheme
+7. Destitute Widow Pension Scheme
+Following steps describe how to apply for the Destitute Widow Pension Scheme Certificate
+through the e-District Portal:
+STEP1:  Go to the e-Sevai (Government of Tamil Nadu) Web Portal.
+STEP 2: Enter the login credentials.
+Make sure ‘Operator’ is selected in the Operator Typefield.
+STEP 3: Enter Captcha code.
+STEP 4: Click on Login.
+Tamil Nadu e-District Application User Manual
+e-Sevai Dashboard will appear.
+STEP 5: Click on Services on the left panel.
+Department Wise service listing will appear.
+Enter Login ID and
+Tamil Nadu e-District Application User Manual
+STEP 6: Click on Revenue Department.
+You can also switch to the Service Wise listing, or switch to Search and search a particular service
+STEP 7: Click on REV-202 Destitute Widow Pension Scheme
+You will be redirected to the service page on the Tamil Nadu e-District Web Portal.
+Click on the Service
+Tamil Nadu e-District Application User Manual
+STEP 8: Click on Proceed to continue.
+Applicant Search form will appear. Search can be performed using the following options:
+Applicant Date Of Birth
+The green asterisk signifies that the available search options are optional mandatory.
+An applicant can apply for the Certificate provided he/she is having a unique CAN number.
+If the applicant doesn’t have a unique CAN Number, he must register for CAN to access the application
+form for the Certificate.
+Tamil Nadu e-District Application User Manual
+Registering for CAN (Citizen Access Number)
+STEP 1: Click on the ‘Click here’ link to apply for CAN Registration.
+The below figure shows the CAN Registration form.
+STEP 2:Fill up all mandatory details in the form prescribed format.
+Click to apply for CAN
+Tamil Nadu e-District Application User Manual
+Fill up the CAN
+Tamil Nadu e-District Application User Manual
+STEP 3:Click on Register to submit form.
+Note: You would be required to generate and verify OTP before submitting the form.
+On successful CAN Registration, the CAN Number will be shown.
+The applicant may now proceed with applying for the Certificate by clicking on the Proceed button.
+Click to apply for
+Tamil Nadu e-District Application User Manual
+Applying for Destitute Widow Pension Scheme
+If the applicant is having a unique CAN Number his/her record will be shown in the search results.
+STEP 1: Select the record by clicking on the option button against the desired record.
+STEP 2: Click on Proceed.
+CAN details of the applicant may be modified by clicking on the Edit CAN Detail button.
+The Save as new option allows you to save the same CAN Number with different applicant details.
+Click to select record
+Tamil Nadu e-District Application User Manual
+Filling up Destitute Widow Pension Scheme
+Applicant details will appear pre-filled in the form. These details are non-editable.
+SECTION 2: Current Address
+Applicant’s current address details will appear pre-filled in the form. These details are non-editable.
+SECTION 3: Permanent Address
 Applicant’s permanent address details will appear pre-filled in the form. These details are non-
-editable. 
- 
- 
-
-Tamil Nadu e-District Application User Manual 
- 
- 
-© 2019. Government of Tamil Nadu. All rights reserved. 
- 
-SECTION 4: Contact Details 
- 
-Applicant’s contact details will appear pre-filled in the form. These details are non-editable. 
- 
- 
- 
-SECTION 5: Bank/Postal Details 
- 
-Applicant’s bank/postal details will appear and need to fill the bank details in the form. These details 
-are editable. 
- 
- 
-SECTION 6: Other Details 
- 
-Specify the Type of Application and Type of Applicant for the further proceedings. 
- 
-    Once, all details are added, and click submits to proceed for the documents submission. 
- 
- 
- 
-SECTION 7: Income Details of Family Members 
-Once applicant can enter all the mandatory fields in Income Details of Family Members and click on 
-add. Added records will be shown on top. 
-
-Tamil Nadu e-District Application User Manual 
- 
- 
-© 2019. Government of Tamil Nadu. All rights reserved. 
- 
- 
-SECTION 8: Property Details of Family Members 
-Once applicant can enter all the mandatory fields in Property Details of Family Members and click on 
-add. Added records will be shown on top and click submits to proceed for the documents submission. 
- 
- 
- 
-Click to submit  
-
-Tamil Nadu e-District Application User Manual 
- 
- 
-© 2019. Government of Tamil Nadu. All rights reserved. 
- 
- 
-Once, the all details are added, you have to After Verify all the data. And click submits to proceed for the 
-documents submission.  
- 
-Next screen will show a list of required documents.  
- 
-Note: Based upon the Type of Applicant selection, required documents will be varied.  
- 
-Attach the documents in prescribed file size and file type. Uploaded documents will be shown at the 
-bottom.You may remove any uploaded document using the cross sign. 
-Please note that the ‘Upload’ button will appear once you browse and add a document. 
- 
- 
- 
-After uploading the documents, click on ‘Make Payment’. 
- 
-Select a document 
-Enter document no. 
-Browse and upload 
-document 
-
-Tamil Nadu e-District Application User Manual 
- 
- 
-© 2019. Government of Tamil Nadu. All rights reserved. 
- 
- 
- 
- 
- 
-Payments page will appear. Amount payable (Total Fees) will be shown on screen. Click on Confirm 
-Payment. 
- 
- 
- 
-Acknowledgement receipt will be shown. 
- 
-Click on Print Receipt to download/print the receipt. 
- 
-Click to make payment 
-Click to confirm 
-payment 
-
-Tamil Nadu e-District Application User Manual 
- 
- 
-© 2019. Government of Tamil Nadu. All rights reserved. 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
-The below figure shows the preview of the acknowledgement receipt. 
- 
-Click to print receipt 
-
-Tamil Nadu e-District Application User Manual 
- 
- 
-© 2019. Government of Tamil Nadu. All rights reserved. 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
-Please Note: 
- 
-After submission (clicking on the Submit button), the application will be saved as draft. You can find 
-draft applications under the Saved Application section and upload documents or make payment as 
-required. 
- 
-
-Tamil Nadu e-District Application User Manual 
- 
- 
-© 2019. Government of Tamil Nadu. All rights reserved. 
- 
- 
- 
- 
- 
- 
-Submitted applications can be viewed under the Submitted Application section. 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
-The current status of an application can be checked from the Check Status section. 
- 
-
-Tamil Nadu e-District Application User Manual 
- 
- 
-© 2019. Government of Tamil Nadu. All rights reserved. 
- 
- 
- 
-7.3. 
-Downloading Certificate 
-Once the application is approved and digitally signed, the certificate can be downloaded from the 
-Operator’s desk and handed over to the applicant. 
- 
-STEP 1:Click on Check Status. 
- 
-STEP 2:Enter Application Number. 
- 
-STEP 3:Click on Search. 
- 
- 
- 
- 
- 
- 
- 
- 
- 
-Click on Search 
-Enter Application 
-No. 
-Click on Check Status 
-
-Tamil Nadu e-District Application User Manual 
- 
- 
-© 2019. Government of Tamil Nadu. All rights reserved. 
- 
- 
-The application will show up. 
- 
-STEP 4: Click on Download certificate link. 
- 
- 
- 
- 
- 
-The certificate will be downloaded. 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
-Click to download 
-certificate 
-
-Tamil Nadu e-District Application User Manual 
- 
- 
-© 2019. Government of Tamil Nadu. All rights reserved. 
- 
- 
- 
- 
- 
- 
-The below figure shows the preview of the Destitute Widow Pension Scheme 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
-
-Tamil Nadu e-District Application User Manual 
- 
- 
-© 2019. Government of Tamil Nadu. All rights reserved. 
- 
-8. Disclaimer 
-This User manual is prepared as per the existing application; however actual screen shots may vary for few 
-cases. 
+Tamil Nadu e-District Application User Manual
+SECTION 4: Contact Details
+Applicant’s contact details will appear pre-filled in the form. These details are non-editable.
+SECTION 5: Bank/Postal Details
+Applicant’s bank/postal details will appear and need to fill the bank details in the form. These details
+SECTION 6: Other Details
+Specify the Type of Application and Type of Applicant for the further proceedings.
+Once, all details are added, and click submits to proceed for the documents submission.
+SECTION 7: Income Details of Family Members
+Once applicant can enter all the mandatory fields in Income Details of Family Members and click on
+add. Added records will be shown on top.
+Tamil Nadu e-District Application User Manual
+SECTION 8: Property Details of Family Members
+Once applicant can enter all the mandatory fields in Property Details of Family Members and click on
+add. Added records will be shown on top and click submits to proceed for the documents submission.
+Tamil Nadu e-District Application User Manual
+Once, the all details are added, you have to After Verify all the data. And click submits to proceed for the
+Next screen will show a list of required documents.
+Note: Based upon the Type of Applicant selection, required documents will be varied.
+Attach the documents in prescribed file size and file type. Uploaded documents will be shown at the
+bottom.You may remove any uploaded document using the cross sign.
+Please note that the ‘Upload’ button will appear once you browse and add a document.
+After uploading the documents, click on ‘Make Payment’.
+Tamil Nadu e-District Application User Manual
+Payments page will appear. Amount payable (Total Fees) will be shown on screen. Click on Confirm
+Acknowledgement receipt will be shown.
+Click on Print Receipt to download/print the receipt.
+Click to make payment
+Tamil Nadu e-District Application User Manual
+The below figure shows the preview of the acknowledgement receipt.
+Click to print receipt
+Tamil Nadu e-District Application User Manual
+After submission (clicking on the Submit button), the application will be saved as draft. You can find
+draft applications under the Saved Application section and upload documents or make payment as
+Tamil Nadu e-District Application User Manual
+Submitted applications can be viewed under the Submitted Application section.
+The current status of an application can be checked from the Check Status section.
+Tamil Nadu e-District Application User Manual
+Once the application is approved and digitally signed, the certificate can be downloaded from the
+Operator’s desk and handed over to the applicant.
+STEP 1:Click on Check Status.
+STEP 2:Enter Application Number.
+STEP 3:Click on Search.
+Click on Check Status
+Tamil Nadu e-District Application User Manual
+The application will show up.
+STEP 4: Click on Download certificate link.
+The certificate will be downloaded.
+Tamil Nadu e-District Application User Manual
+The below figure shows the preview of the Destitute Widow Pension Scheme
+Tamil Nadu e-District Application User Manual
+This User manual is prepared as per the existing application; however actual screen shots may vary for few
